@@ -175,6 +175,7 @@ Package.onUse(function(api) {
         'publications/chats.js',
         'publications/sectors.js',
         'publications/boards.js',
+        'publications/invites.js',
         'routes/hooks.js',
         'routes/middleware.js',
         'routes/csv/csv_routes.js',

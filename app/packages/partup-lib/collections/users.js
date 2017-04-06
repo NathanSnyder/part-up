@@ -309,6 +309,17 @@ Meteor.users.findForContribution = function(contribution) {
 };
 
 /**
+ * Find the user of an invite
+ *
+ * @memberOf Meteor.users
+ * @param {Contributions} invite
+ * @return {Mongo.Cursor}
+ */
+Meteor.users.findForInvite = function(invite) {
+    return Meteor.users.findSinglePublicProfile(invite.invitee_id);
+};
+
+/**
  * Safely find users that are not disabled
  *
  * @memberOf Meteor.users
