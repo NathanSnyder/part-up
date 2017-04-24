@@ -34,10 +34,10 @@ JsonRoutes.Middleware.use(function(request, response, next) {
 
     var uri = url.parse(request.url, true, true);
 
-    if (uri.query.meteor_js_resource || 
+    if (uri.query.meteor_js_resource ||
         uri.query.meteor_css_resource ||
-        uri.query.hash || uri.query.v || 
-        imagesAndFonts.some(function(regex){ return regex.test(uri.pathname) })) {
+        uri.query.hash || uri.query.v ||
+        imagesAndFonts.some(function(regex) { return regex.test(uri.pathname) })) {
         // Meteor resource filename is hashed, cache for a year...
         cacheControl = 'public, max-age=31536000';
     }
@@ -46,3 +46,6 @@ JsonRoutes.Middleware.use(function(request, response, next) {
 
     next();
 });
+
+JsonRoutes.Middleware.use(JsonRoutes.Middleware.parseBearerToken);
+JsonRoutes.Middleware.use(JsonRoutes.Middleware.authenticateMeteorUserByToken);

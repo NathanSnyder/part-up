@@ -30,6 +30,8 @@ Package.onUse(function(api) {
         'peerlibrary:aws-sdk',
         'simple:rest',
         'simple:json-routes',
+        'simple:rest-bearer-token-parser',
+        'simple:authenticate-user-by-token',
         'anonyfox:scrape',
         '3stack:accounts-logout-hook'
     ], ['server']);
